@@ -16,6 +16,14 @@ app.get("/exams", (req, res) => {
     ]);
 });
 
+// Member 2: Hacuman Add POST
+app.post("/exams", (req, res) => {
+    const newExam = req.body;
+    exams.push(newExam);
+    res.status(201).json(newExam);
+});
+
+
 // Use routes
 app.use(examGroupRoute);
 
