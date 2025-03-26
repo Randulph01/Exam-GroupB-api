@@ -31,3 +31,13 @@ app.use(examGroupRoute);
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+
+
+//  Member 3: Decierdo Add Update
+app.put("/exams/:id", (req, res) => {
+    const id = parseInt(req.params.id);
+    const updatedExam = req.body;
+
+    exams = exams.map(exam => (exam.id === id ? updatedExam : exam));
+    res.json(updatedExam);
+});
